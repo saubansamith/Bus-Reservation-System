@@ -1,0 +1,43 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container my-5 bg-transparent">
+    <div class="row justify-content-center bg-transparent">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 bg-transparent">
+            <div class="card rounded-0 bg-transparent">
+                <div class="card-header bg-transparent">
+                    <div class="card-title h3 mb-0 bg-transparent text-white">Find Bus</div>
+                </div>
+                <div class="card-body bg-transparent">
+                    <div class="container-fluid bg-transparent">
+                        <form action="{% url 'findbus' %}" method="post" id="find-form">
+                            {% csrf_token %}
+                            <div class="mb-3 bg-transparent">
+                                <label for="source" class="control-labell text-white">From</label>
+                                <input name='source' class="form-control rounded-0 text-white bg-transparent border-primary border-2" type="text" id="source" value="{% if data.source %}{{data.source}}{% endif %}" required>
+                            </div>
+                            <div class="mb-3 bg-transparent">
+                                <label for="destination" class="control-labell text-white">Destination</label>
+                                <input name='destination' id="destination" class="form-control rounded-0 text-white bg-transparent border-primary border-2" type="text" value="{% if data.destination %}{{data.destination}}{% endif %}" required>
+                            </div>
+                            <div class="mb-3 bg-transparent text-white">
+                                <label for="date" class="control-labell text-white">Date</label>
+                                <input name='date' id="date" class="form-control text-white rounded-0 bg-transparent border-primary border-2" type="date" value="{% if data.date %}{{data.date}}{% endif %}" required>
+
+                            </div>
+                            {% if error %}
+                            <div class="alert alert-danger bg-transparent">
+                                {{error}}
+                            </div>
+                            {% endif %}
+
+                        </form>
+                    </div>
+                </div>
+                <div class="card-footer text-center bg-transparent">
+                    <button class="btn btn-sm rounded-0 btn-primary w-100" form="find-form">Find</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

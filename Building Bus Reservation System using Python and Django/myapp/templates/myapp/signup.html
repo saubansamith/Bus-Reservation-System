@@ -1,0 +1,54 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container my-5 bg-transparent">
+    <div class="row justify-content-center bg-transparent">
+        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-12 bg-transparent">
+            <div class="card rounded-0 bg-transparent">
+                <div class="card-header bg-transparent">
+                    <div class="card-title bg-transparent text-center text-white h3 b-0">Registration</div>
+
+                </div>
+                <div class="card-body bg-transparent">
+                    <div class="container-fluid bg-transparent">
+                        <form action="{% url 'signup' %}" method="post" id="registration-form">
+                            {% csrf_token %} 
+                            <div class="form-floating bg-transparent"> 
+                                        <input type="email" class="form-control" 
+                                            id="email" name="email" placeholder="Username"> 
+                                        <label for="floatingName" class="text-primary"> 
+                                            Email</label> 
+                            </div>
+                            <br>
+                            <div class="form-floating bg-transparent"> 
+                                        <input type="text" class="form-control" 
+                                            id="mobilenumber" name="mobilenumber" placeholder="Username"> 
+                                        <label for="floatingName" class="text-primary"> 
+                                            Mobile Number</label> 
+                            </div>
+                            <br>
+                            <div class="form-floating bg-transparent"> 
+                                        <input type="text" class="form-control" 
+                                            id="name" name="name" placeholder="Username"> 
+                                        <label for="floatingName" class="text-primary"> 
+                                            Username</label> 
+                            </div>
+                            <br>
+                            <div class="form-floating bg-transparent"> 
+                                        <input type="password" class="form-control" 
+                                            id="password" name="password" placeholder="Username"> 
+                                        <label for="floatingName" class="text-primary" > 
+                                            Password</label> 
+                            </div>
+                            <br>
+                                            <div class="card-footer text-center">
+                    <button class="btn btn-sm btn-success rounded-0 w-100" form="registration-form">Create Account</button>
+                        
+                    </div>
+                        </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
